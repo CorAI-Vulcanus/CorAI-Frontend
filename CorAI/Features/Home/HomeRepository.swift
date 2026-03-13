@@ -17,8 +17,9 @@ final class MockHomeRepository: HomeRepositoryProtocol {
         try await Task.sleep(for: .milliseconds(200))
 
         return DeviceStatus(
-            deviceId: "Shirt #829",
-            connectionState: .connected
+            deviceId: "Shirt #1",
+            connectionState: .connected,
+            batteryLevel: 87
         )
     }
 
@@ -39,3 +40,4 @@ final class MockHomeRepository: HomeRepositoryProtocol {
         return ECGDataGenerator.generateStream(complexes: 4, samplesPerComplex: 60)
     }
 }
+

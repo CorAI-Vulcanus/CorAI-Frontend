@@ -30,6 +30,7 @@ struct ECGSample: Identifiable {
 struct DeviceStatus: Equatable {
     let deviceId: String
     var connectionState: ConnectionState
+    var batteryLevel: Int // 0-100
 }
 
 enum ConnectionState: String {

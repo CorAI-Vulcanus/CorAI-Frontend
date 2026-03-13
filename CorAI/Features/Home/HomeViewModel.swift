@@ -15,7 +15,7 @@ final class HomeViewModel {
     )
     var deviceStatus: DeviceStatus = DeviceStatus(
         deviceId: "Shirt #1",
-        connectionState: .connected
+        connectionState: .connected, batteryLevel: 85
     )
     var isLoading = false
     var errorMessage: String?

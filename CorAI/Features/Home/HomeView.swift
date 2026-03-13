@@ -132,7 +132,10 @@ private extension HomeView {
                 iconBackground: Color.corHRVIconBg,
                 value: "\(viewModel.metrics.hrv)",
                 unit: "ms",
-                label: "HRV (SDNN)"
+                label: "HRV (SDNN)",
+                subtitle: "Heart Recovery",
+                statusLabel: "Normal",
+                statusColor: .green
             )
 
             MetricCard(
@@ -145,7 +148,16 @@ private extension HomeView {
                 trend: "↓ 2%",
                 trendColor: .red
             )
-
+            
+            MetricCard(
+                icon: "lungs.fill",
+                iconColor: .teal,
+                iconBackground: Color.corRespIconBg,
+                value: "\(viewModel.metrics.respirationRate)",
+                unit: "rpm",
+                label: "Respiration Rate (RPM)"
+            )
+/*
             MetricCard(
                 icon: "thermometer.medium",
                 iconColor: .blue,
@@ -154,7 +166,7 @@ private extension HomeView {
                 unit: "°C",
                 label: "Skin Temp"
             )
-
+ 
             MetricCard(
                 icon: "lungs.fill",
                 iconColor: .teal,
@@ -163,6 +175,7 @@ private extension HomeView {
                 unit: "rpm",
                 label: "Resp. Rate"
             )
+ */
         }
     }
 }

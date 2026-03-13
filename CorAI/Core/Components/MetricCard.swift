@@ -11,13 +11,16 @@ struct MetricCard: View {
     let value: String
     let unit: String
     let label: String
+    var subtitle: String? = nil
+    var statusLabel: String? = nil
+    var statusColor: Color = .green
     var trend: String? = nil
     var trendColor: Color = .red
 
     var body: some View {
         RoundedCard {
             VStack(alignment: .leading, spacing: AppSpacing.sm) {
-                // Top row: icon + unit/trend
+                // Top row: icon + status/trend
                 HStack(alignment: .top) {
                     // Icon badge
                     Image(systemName: icon)
@@ -29,28 +32,46 @@ struct MetricCard: View {
 
                     Spacer()
 
-                    // Unit or trend
-                    if let trend = trend {
+                    // Status or trend (top-right)
+                    if let statusLabel = statusLabel {
+                        Text(statusLabel)
+                            .font(AppTypography.captionBold)
+                            .foregroundStyle(statusColor)
+                    } else if let trend = trend {
                         Text(trend)
                             .font(AppTypography.caption)
                             .foregroundStyle(trendColor)
-                    } else {
+                    }
+                }
+
+                Spacer(minLength: 0)
+
+                // Value + Unit on same line
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text(value)
+                        .font(AppTypography.metricValue)
+                        .foregroundStyle(Color.corPrimaryText)
+
+                    if !unit.isEmpty {
                         Text(unit)
                             .font(AppTypography.metricUnit)
                             .foregroundStyle(.secondary)
                     }
                 }
 
-                // Value
-                Text(value)
-                    .font(AppTypography.metricValue)
-                    .foregroundStyle(Color.corPrimaryText)
+                // Subtitle (e.g. "Heart Recovery")
+                if let subtitle = subtitle {
+                    Text(subtitle)
+                        .font(AppTypography.metricLabel)
+                        .foregroundStyle(.secondary)
+                }
 
-                // Label
+                // Technical label
                 Text(label)
                     .font(AppTypography.metricLabel)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.tertiary)
             }
+            .frame(minHeight: 130)
         }
     }
 }
@@ -65,7 +86,10 @@ struct MetricCard: View {
             iconBackground: Color.corHRVIconBg,
             value: "42",
             unit: "ms",
-            label: "HRV (SDNN)"
+            label: "HRV (SDNN)",
+            subtitle: "Heart Recovery",
+            statusLabel: "Normal",
+            statusColor: .green
         )
 
         MetricCard(
