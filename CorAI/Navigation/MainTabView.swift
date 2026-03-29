@@ -5,6 +5,8 @@ import SwiftUI
 struct MainTabView: View {
 
     @State private var selectedTab: Tab = .live
+    @State private var showRecording = false
+    @State private var sessionStore = SessionStore()
 
     // Dependency injection: repository flows through to ViewModel
     let repository: HomeRepositoryProtocol
@@ -19,6 +21,9 @@ struct MainTabView: View {
             customTabBar
         }
         .ignoresSafeArea(.keyboard)
+        .fullScreenCover(isPresented: $showRecording) {
+            recordingSheet
+        }
     }
 
     // MARK: - Tab Enum
@@ -29,9 +34,9 @@ struct MainTabView: View {
         var title: String {
             switch self {
             case .live:    return "Live"
-            case .history: return "History"
+            case .history: return "Historial"
             case .doctor:  return "Doctor"
-            case .profile: return "Profile"
+            case .profile: return "Perfil"
             }
         }
 
@@ -55,11 +60,14 @@ private extension MainTabView {
         case .live:
             HomeView(viewModel: HomeViewModel(repository: repository))
         case .history:
-            placeholderView(title: "History", icon: "clock.arrow.circlepath")
+            HistoryView(viewModel: HistoryViewModel(
+                repository: MockHistoryRepository(),
+                sessionStore: sessionStore
+            ))
         case .doctor:
             placeholderView(title: "Doctor", icon: "stethoscope")
         case .profile:
-            placeholderView(title: "Profile", icon: "person.fill")
+            placeholderView(title: "Perfil", icon: "person.fill")
         }
     }
 
@@ -80,6 +88,20 @@ private extension MainTabView {
     }
 }
 
+// MARK: - Recording Sheet
+
+private extension MainTabView {
+    var recordingSheet: some View {
+        let vm = RecordingViewModel()
+        vm.onSessionSaved = { session in
+            sessionStore.add(session)
+            // Auto-switch to history tab after recording
+            selectedTab = .history
+        }
+        return RecordingView(viewModel: vm)
+    }
+}
+
 // MARK: - Custom Tab Bar
 
 private extension MainTabView {
@@ -91,7 +113,7 @@ private extension MainTabView {
 
             Spacer()
 
-            // Center action button (floating)
+            // Center action button (start recording)
             centerButton
 
             Spacer()
@@ -132,7 +154,7 @@ private extension MainTabView {
 
     var centerButton: some View {
         Button {
-            // Future action (e.g. start new recording)
+            showRecording = true
         } label: {
             Image(systemName: "plus")
                 .font(.system(size: 24, weight: .bold))
