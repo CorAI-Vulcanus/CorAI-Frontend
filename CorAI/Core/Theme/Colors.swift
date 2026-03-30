@@ -17,6 +17,8 @@ extension Color {
     static let corSecondaryText    = Color.gray
     static let corAccent           = corTeal
     static let corStatusGreen      = Color(hex: "34C759")
+    static let corStatusReview     = Color(hex: "FF9500")  // amber for Review badge
+    static let corSearchBarBg      = Color(hex: "EAEAEA")  // search bar fill
 
     // Metric icon backgrounds
     static let corHRVIconBg        = Color(hex: "EDE7F6")  // soft purple

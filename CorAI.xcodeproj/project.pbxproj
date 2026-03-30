@@ -17,6 +17,15 @@
 		A2110925712A21687A0B2540 /* MetricCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A51DDAA516A203CA1FF636 /* MetricCard.swift */; };
 		A54CD3AE482F592E39A805E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E6BC20671E181B7D8CB44 /* APIClient.swift */; };
 		B2A67B4FB81AC3D406315AC6 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2D823FDEA4EADE855BFCD /* HomeModels.swift */; };
+		C00709C72F78B350004801B6 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709C52F78B350004801B6 /* HistoryViewModel.swift */; };
+		C00709C82F78B350004801B6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709C42F78B350004801B6 /* HistoryView.swift */; };
+		C00709C92F78B350004801B6 /* ECGHistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709C12F78B350004801B6 /* ECGHistoryCardView.swift */; };
+		C00709CA2F78B350004801B6 /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709C22F78B350004801B6 /* HistoryModels.swift */; };
+		C00709CB2F78B350004801B6 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709C32F78B350004801B6 /* HistoryRepository.swift */; };
+		C00709CD2F78B627004801B6 /* ECGSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709CC2F78B627004801B6 /* ECGSessionDetailView.swift */; };
+		C00709CF2F78BB74004801B6 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709CE2F78BB74004801B6 /* SessionStore.swift */; };
+		C00709D32F78BB80004801B6 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709D02F78BB80004801B6 /* RecordingView.swift */; };
+		C00709D42F78BB80004801B6 /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00709D12F78BB80004801B6 /* RecordingViewModel.swift */; };
 		C1D4EF33BB3EF43A6F95AF0C /* CorAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A5F56CC76CD87EF8A73EA /* CorAIApp.swift */; };
 		CCF3D13E11A7E9167B5238CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617CF33865A5222C1D2BED5 /* HomeView.swift */; };
 		D922011C1AE2273EE9AC716B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442D4E493261CAD33899D95 /* HomeRepository.swift */; };
@@ -39,6 +48,15 @@
 		A13C7768BC500462D4A40431 /* RoundedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCard.swift; sourceTree = "<group>"; };
 		A97C29AD63741CF438998CE6 /* CorAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B442D4E493261CAD33899D95 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		C00709C12F78B350004801B6 /* ECGHistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGHistoryCardView.swift; sourceTree = "<group>"; };
+		C00709C22F78B350004801B6 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
+		C00709C32F78B350004801B6 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
+		C00709C42F78B350004801B6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		C00709C52F78B350004801B6 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		C00709CC2F78B627004801B6 /* ECGSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSessionDetailView.swift; sourceTree = "<group>"; };
+		C00709CE2F78BB74004801B6 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		C00709D02F78BB80004801B6 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		C00709D12F78BB80004801B6 /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 		D9810FA5AC592D137098E2E4 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		F9E2D823FDEA4EADE855BFCD /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				15D2001A446C2C509DA8CB0A /* Home */,
+				C00709C62F78B350004801B6 /* History */,
+				C00709D22F78BB80004801B6 /* Recording */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -136,6 +156,29 @@
 				A97C29AD63741CF438998CE6 /* CorAI.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C00709C62F78B350004801B6 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C00709C12F78B350004801B6 /* ECGHistoryCardView.swift */,
+				C00709CC2F78B627004801B6 /* ECGSessionDetailView.swift */,
+				C00709C22F78B350004801B6 /* HistoryModels.swift */,
+				C00709C32F78B350004801B6 /* HistoryRepository.swift */,
+				C00709C42F78B350004801B6 /* HistoryView.swift */,
+				C00709C52F78B350004801B6 /* HistoryViewModel.swift */,
+				C00709CE2F78BB74004801B6 /* SessionStore.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		C00709D22F78BB80004801B6 /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				C00709D02F78BB80004801B6 /* RecordingView.swift */,
+				C00709D12F78BB80004801B6 /* RecordingViewModel.swift */,
+			);
+			path = Recording;
 			sourceTree = "<group>";
 		};
 		D702CB23F338154C612C37C5 /* App */ = {
@@ -221,13 +264,22 @@
 				A54CD3AE482F592E39A805E2 /* APIClient.swift in Sources */,
 				F60A62CCE7149664082BE027 /* Endpoints.swift in Sources */,
 				2FE1927C28F7A8485261EF48 /* NetworkError.swift in Sources */,
+				C00709D32F78BB80004801B6 /* RecordingView.swift in Sources */,
+				C00709D42F78BB80004801B6 /* RecordingViewModel.swift in Sources */,
 				A2110925712A21687A0B2540 /* MetricCard.swift in Sources */,
 				2A3AD70D8642E72525929F02 /* ECGChartView.swift in Sources */,
+				C00709C72F78B350004801B6 /* HistoryViewModel.swift in Sources */,
+				C00709C82F78B350004801B6 /* HistoryView.swift in Sources */,
+				C00709C92F78B350004801B6 /* ECGHistoryCardView.swift in Sources */,
+				C00709CA2F78B350004801B6 /* HistoryModels.swift in Sources */,
+				C00709CB2F78B350004801B6 /* HistoryRepository.swift in Sources */,
 				4934BDB82AC5B3A0B790476F /* RoundedCard.swift in Sources */,
 				CCF3D13E11A7E9167B5238CB /* HomeView.swift in Sources */,
 				0F5E3B81E22BC20347147B8B /* HomeViewModel.swift in Sources */,
 				D922011C1AE2273EE9AC716B /* HomeRepository.swift in Sources */,
 				B2A67B4FB81AC3D406315AC6 /* HomeModels.swift in Sources */,
+				C00709CD2F78B627004801B6 /* ECGSessionDetailView.swift in Sources */,
+				C00709CF2F78BB74004801B6 /* SessionStore.swift in Sources */,
 				41F9AE6E17DD12C43C14440A /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
