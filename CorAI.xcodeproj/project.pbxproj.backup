@@ -35,14 +35,14 @@
 		C0AF8FA52F9774BF009A1EC5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FA02F9774BF009A1EC5 /* ProfileViewModel.swift */; };
 		C0AF8FA62F9774BF009A1EC5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8F9F2F9774BF009A1EC5 /* ProfileView.swift */; };
 		C0AF8FA72F9774BF009A1EC5 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8F9E2F9774BF009A1EC5 /* ProfileRepository.swift */; };
+		C0AF8FAA2F9774EB009A1EC5 /* RecordingRepository 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FA92F9774EB009A1EC5 /* RecordingRepository 2.swift */; };
+		C0AF8FAB2F9774EB009A1EC5 /* ECGIngestModels 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FA82F9774EB009A1EC5 /* ECGIngestModels 2.swift */; };
 		C0AF8FAD2F977551009A1EC5 /* HistoryAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FAC2F977551009A1EC5 /* HistoryAPIModels.swift */; };
 		C0AF8FB32F9775B5009A1EC5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FB12F9775B5009A1EC5 /* LoginViewModel.swift */; };
 		C0AF8FB42F9775B5009A1EC5 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FAF2F9775B5009A1EC5 /* AuthRepository.swift */; };
 		C0AF8FB52F9775B5009A1EC5 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FAE2F9775B5009A1EC5 /* AuthModels.swift */; };
 		C0AF8FB62F9775B5009A1EC5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FB02F9775B5009A1EC5 /* LoginView.swift */; };
-		C0B0AF1E2F977A5700A649A1 /* ECGWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0AF1D2F977A5700A649A1 /* ECGWebSocketClient.swift */; };
-		C0B0AF212F977ACB00A649A1 /* RecordingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0AF202F977ACB00A649A1 /* RecordingRepository.swift */; };
-		C0B0AF222F977ACB00A649A1 /* ECGIngestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0AF1F2F977ACB00A649A1 /* ECGIngestModels.swift */; };
+		C0AF8FB82F97770F009A1EC5 /* ECGWebSocketClient 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AF8FB72F97770F009A1EC5 /* ECGWebSocketClient 2.swift */; };
 		C1D4EF33BB3EF43A6F95AF0C /* CorAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A5F56CC76CD87EF8A73EA /* CorAIApp.swift */; };
 		CCF3D13E11A7E9167B5238CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617CF33865A5222C1D2BED5 /* HomeView.swift */; };
 		D922011C1AE2273EE9AC716B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442D4E493261CAD33899D95 /* HomeRepository.swift */; };
@@ -83,14 +83,14 @@
 		C0AF8F9E2F9774BF009A1EC5 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		C0AF8F9F2F9774BF009A1EC5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C0AF8FA02F9774BF009A1EC5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		C0AF8FA82F9774EB009A1EC5 /* ECGIngestModels 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ECGIngestModels 2.swift"; sourceTree = "<group>"; };
+		C0AF8FA92F9774EB009A1EC5 /* RecordingRepository 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordingRepository 2.swift"; sourceTree = "<group>"; };
 		C0AF8FAC2F977551009A1EC5 /* HistoryAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAPIModels.swift; sourceTree = "<group>"; };
 		C0AF8FAE2F9775B5009A1EC5 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		C0AF8FAF2F9775B5009A1EC5 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		C0AF8FB02F9775B5009A1EC5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C0AF8FB12F9775B5009A1EC5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		C0B0AF1D2F977A5700A649A1 /* ECGWebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGWebSocketClient.swift; sourceTree = "<group>"; };
-		C0B0AF1F2F977ACB00A649A1 /* ECGIngestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ECGIngestModels.swift; path = CorAI/Features/Recording/ECGIngestModels.swift; sourceTree = "<group>"; };
-		C0B0AF202F977ACB00A649A1 /* RecordingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordingRepository.swift; path = CorAI/Features/Recording/RecordingRepository.swift; sourceTree = "<group>"; };
+		C0AF8FB72F97770F009A1EC5 /* ECGWebSocketClient 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ECGWebSocketClient 2.swift"; sourceTree = "<group>"; };
 		D9810FA5AC592D137098E2E4 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		F9E2D823FDEA4EADE855BFCD /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +112,7 @@
 				2B2E6BC20671E181B7D8CB44 /* APIClient.swift */,
 				459BEC55D839C94BCCAFCB3C /* Endpoints.swift */,
 				4C1636BD5992FD301D141D4B /* NetworkError.swift */,
+				C0AF8FB72F97770F009A1EC5 /* ECGWebSocketClient 2.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -158,9 +159,6 @@
 		7882D14E196057770B59E53D = {
 			isa = PBXGroup;
 			children = (
-				C0B0AF1F2F977ACB00A649A1 /* ECGIngestModels.swift */,
-				C0B0AF202F977ACB00A649A1 /* RecordingRepository.swift */,
-				C0B0AF1D2F977A5700A649A1 /* ECGWebSocketClient.swift */,
 				C0AF8F9D2F9774BF009A1EC5 /* Doctor */,
 				C0AF8FA12F9774BF009A1EC5 /* Profile */,
 				C0AF8F942F97746B009A1EC5 /* Auth */,
@@ -220,6 +218,8 @@
 			children = (
 				C00709D02F78BB80004801B6 /* RecordingView.swift */,
 				C00709D12F78BB80004801B6 /* RecordingViewModel.swift */,
+				C0AF8FA82F9774EB009A1EC5 /* ECGIngestModels 2.swift */,
+				C0AF8FA92F9774EB009A1EC5 /* RecordingRepository 2.swift */,
 			);
 			path = Recording;
 			sourceTree = "<group>";
@@ -359,12 +359,12 @@
 				89C465CECF2B55954BE4ACA6 /* Spacing.swift in Sources */,
 				A54CD3AE482F592E39A805E2 /* APIClient.swift in Sources */,
 				C0AF8FA22F9774BF009A1EC5 /* DoctorView.swift in Sources */,
-				C0B0AF212F977ACB00A649A1 /* RecordingRepository.swift in Sources */,
-				C0B0AF222F977ACB00A649A1 /* ECGIngestModels.swift in Sources */,
 				C0AF8FA32F9774BF009A1EC5 /* DoctorViewModel.swift in Sources */,
 				C0AF8FA42F9774BF009A1EC5 /* DoctorRepository.swift in Sources */,
 				C0AF8FA52F9774BF009A1EC5 /* ProfileViewModel.swift in Sources */,
 				C0AF8FA62F9774BF009A1EC5 /* ProfileView.swift in Sources */,
+				C0AF8FAA2F9774EB009A1EC5 /* RecordingRepository 2.swift in Sources */,
+				C0AF8FAB2F9774EB009A1EC5 /* ECGIngestModels 2.swift in Sources */,
 				C0AF8FA72F9774BF009A1EC5 /* ProfileRepository.swift in Sources */,
 				F60A62CCE7149664082BE027 /* Endpoints.swift in Sources */,
 				2FE1927C28F7A8485261EF48 /* NetworkError.swift in Sources */,
@@ -374,6 +374,7 @@
 				C0AF8FB42F9775B5009A1EC5 /* AuthRepository.swift in Sources */,
 				C0AF8FB52F9775B5009A1EC5 /* AuthModels.swift in Sources */,
 				C0AF8FB62F9775B5009A1EC5 /* LoginView.swift in Sources */,
+				C0AF8FB82F97770F009A1EC5 /* ECGWebSocketClient 2.swift in Sources */,
 				A2110925712A21687A0B2540 /* MetricCard.swift in Sources */,
 				2A3AD70D8642E72525929F02 /* ECGChartView.swift in Sources */,
 				C00709C72F78B350004801B6 /* HistoryViewModel.swift in Sources */,
@@ -382,7 +383,6 @@
 				C00709CA2F78B350004801B6 /* HistoryModels.swift in Sources */,
 				C00709CB2F78B350004801B6 /* HistoryRepository.swift in Sources */,
 				4934BDB82AC5B3A0B790476F /* RoundedCard.swift in Sources */,
-				C0B0AF1E2F977A5700A649A1 /* ECGWebSocketClient.swift in Sources */,
 				C0AF8FAD2F977551009A1EC5 /* HistoryAPIModels.swift in Sources */,
 				C0AF8F972F97746B009A1EC5 /* KeychainManager.swift in Sources */,
 				C0AF8F982F97746B009A1EC5 /* SessionManager.swift in Sources */,

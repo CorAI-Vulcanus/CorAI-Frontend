@@ -1,10 +1,8 @@
 import Foundation
 
-// MARK: - Network Error
-
 enum NetworkError: LocalizedError {
     case invalidURL
-    case requestFailed(statusCode: Int)
+    case requestFailed(statusCode: Int, message: String?)
     case decodingFailed
     case noData
     case unauthorized
@@ -14,19 +12,19 @@ enum NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "Invalid URL."
-        case .requestFailed(let code):
-            return "Request failed with status code \(code)."
+            return "URL inválida."
+        case .requestFailed(let code, let msg):
+            return msg ?? "Error \(code)."
         case .decodingFailed:
-            return "Failed to decode the response."
+            return "Error al decodificar respuesta."
         case .noData:
-            return "No data received."
+            return "Sin datos."
         case .unauthorized:
-            return "Unauthorized access."
-        case .serverError(let message):
-            return "Server error: \(message)"
-        case .unknown(let error):
-            return error.localizedDescription
+            return "Sesión expirada. Inicia sesión nuevamente."
+        case .serverError(let m):
+            return "Error del servidor: \(m)"
+        case .unknown(let e):
+            return e.localizedDescription
         }
     }
 }

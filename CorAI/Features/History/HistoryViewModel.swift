@@ -22,7 +22,7 @@ final class HistoryViewModel {
     // MARK: Init
 
     init(
-        repository: HistoryRepositoryProtocol = MockHistoryRepository(),
+        repository: HistoryRepositoryProtocol = HistoryRepository(),
         sessionStore: SessionStore = SessionStore()
     ) {
         self.repository = repository
@@ -51,8 +51,8 @@ final class HistoryViewModel {
 
         do {
             var groups = try await repository.fetchSessions(filter: selectedFilter)
+            // Merge locally recorded sessions not yet synced
 
-            // Merge locally recorded sessions into the "Hoy" group
             if !sessionStore.sessions.isEmpty {
                 let recordedGroup = HistoryDateGroup(
                     title: "Grabaciones recientes",

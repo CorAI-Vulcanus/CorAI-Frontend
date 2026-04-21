@@ -1,12 +1,10 @@
 import Foundation
 import Combine
 
-// MARK: - Home ViewModel
-
 @Observable
 final class HomeViewModel {
 
-    // MARK: Published state
+    // MARK: - State
 
     var ecgSamples: [Double] = ECGDataGenerator.generateStream()
     var metrics: HeartMetrics = HeartMetrics(
@@ -15,17 +13,23 @@ final class HomeViewModel {
     )
     var deviceStatus: DeviceStatus = DeviceStatus(
         deviceId: "Shirt #1",
-        connectionState: .connected, batteryLevel: 85
+        connectionState: .connected,
+        batteryLevel: 85
     )
-    var isLoading = false
+    var isLoading    = false
     var errorMessage: String?
 
-    // MARK: Private
+    // MARK: - Dependencies
 
     private let repository: HomeRepositoryProtocol
+    private let wsClient   = ECGWebSocketClient()
+    private let session    = SessionManager.shared
     private var ecgTimer: AnyCancellable?
 
-    // MARK: Init
+    // When the WebSocket is not connected, fall back to simulated ECG
+    private var useWebSocket: Bool { wsClient.isConnected }
+
+    // MARK: - Init
 
     init(repository: HomeRepositoryProtocol = MockHomeRepository()) {
         self.repository = repository
@@ -34,27 +38,40 @@ final class HomeViewModel {
     // MARK: - Lifecycle
 
     func onAppear() {
-        startECGStream()
         Task { await loadInitialData() }
+        connectWebSocket()
+        startLocalECGTimer()
     }
 
     func onDisappear() {
-        stopECGStream()
+        ecgTimer?.cancel()
+        ecgTimer = nil
+        wsClient.disconnect()
     }
 
-    // MARK: - ECG Stream
+    // MARK: - WebSocket
 
-    func startECGStream() {
+    private func connectWebSocket() {
+        let userId = session.userId
+        guard !userId.isEmpty else { return }
+        wsClient.connect(userId: userId)
+    }
+
+    // MARK: - ECG local timer (fallback when WS not connected)
+
+    private func startLocalECGTimer() {
         ecgTimer = Timer.publish(every: 0.2, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.advanceECG()
+                guard let self else { return }
+                if self.useWebSocket, !self.wsClient.samples.isEmpty {
+                    // Use live samples from WebSocket
+                    self.ecgSamples = self.wsClient.samples
+                } else {
+                    // Simulate locally while no WS data
+                    self.advanceSimulatedECG()
+                }
             }
-    }
-
-    func stopECGStream() {
-        ecgTimer?.cancel()
-        ecgTimer = nil
     }
 
     // MARK: - Data Loading
@@ -65,29 +82,22 @@ final class HomeViewModel {
         defer { isLoading = false }
 
         do {
-            let status = try await repository.fetchDeviceStatus()
-            deviceStatus = status
-
-            let newMetrics = try await repository.fetchMetrics()
-            metrics = newMetrics
+            deviceStatus = try await repository.fetchDeviceStatus()
+            metrics      = try await repository.fetchMetrics()
         } catch {
             errorMessage = error.localizedDescription
         }
     }
 
-    // MARK: - Private helpers
+    // MARK: - Private
 
-    private func advanceECG() {
-        // Shift the buffer left by a small chunk and append new data
+    private func advanceSimulatedECG() {
         let shiftSize = 4
         var buffer = ecgSamples
         buffer.removeFirst(min(shiftSize, buffer.count))
-
-        // Append new samples from a fresh complex fragment
         let fragment = ECGDataGenerator.generateComplex(sampleCount: 60)
-        let slice = Array(fragment.prefix(shiftSize)).map { $0 + Double.random(in: -0.005...0.005) }
+        let slice    = Array(fragment.prefix(shiftSize)).map { $0 + Double.random(in: -0.005...0.005) }
         buffer.append(contentsOf: slice)
-
         ecgSamples = buffer
     }
 }

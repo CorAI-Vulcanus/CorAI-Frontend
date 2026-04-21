@@ -361,7 +361,7 @@ private extension ECGSessionDetailView {
     }
 }
 
-#Preview("Landscape") {
+#Preview("Landscape", traits: .landscapeLeft) {
     NavigationStack {
         ECGSessionDetailView(
             session: ECGSession(
@@ -380,5 +380,4 @@ private extension ECGSessionDetailView {
             )
         )
     }
-    .previewInterfaceOrientation(.landscapeLeft)
 }
