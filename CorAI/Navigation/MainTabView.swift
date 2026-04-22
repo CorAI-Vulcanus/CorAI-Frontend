@@ -61,13 +61,13 @@ private extension MainTabView {
             HomeView(viewModel: HomeViewModel(repository: repository))
         case .history:
             HistoryView(viewModel: HistoryViewModel(
-                repository: MockHistoryRepository(),
+                repository: HistoryRepository(),
                 sessionStore: sessionStore
             ))
         case .doctor:
-            placeholderView(title: "Doctor", icon: "stethoscope")
+            DoctorView()
         case .profile:
-            placeholderView(title: "Perfil", icon: "person.fill")
+            ProfileView()
         }
     }
 

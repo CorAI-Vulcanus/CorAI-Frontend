@@ -1,11 +1,6 @@
 import Foundation
 import Combine
 
-// MARK: - Recording ViewModel
-
-/// Manages a live ECG recording session.
-/// Accumulates 1 second of simulated ECG data every second,
-/// stores it as `ECGSecondSegment` entries, and builds the session when stopped.
 @Observable
 final class RecordingViewModel {
 
@@ -26,11 +21,19 @@ final class RecordingViewModel {
     private var timer: AnyCancellable?
     private var ecgTimer: AnyCancellable?
     private let deviceId: String
+    private let recordingRepository: RecordingRepositoryProtocol
+    private let session: SessionManager
 
     // MARK: - Init
 
-    init(deviceId: String = "Camisa #829") {
+    init(
+        deviceId: String = "Camisa #829",
+        recordingRepository: RecordingRepositoryProtocol = RecordingRepository(),
+        session: SessionManager = .shared
+    ) {
         self.deviceId = deviceId
+        self.recordingRepository = recordingRepository
+        self.session = session
     }
 
     // MARK: - Start Recording
@@ -65,18 +68,34 @@ final class RecordingViewModel {
         ecgTimer?.cancel()
         ecgTimer = nil
 
-        // Build the session
-        let session = ECGSession(
-            date: Date().addingTimeInterval(-Double(elapsedSeconds)), // session start time
+        let sessionStart = Date().addingTimeInterval(-Double(elapsedSeconds))
+        let allSamples   = recordedSegments.flatMap { $0.samples }
+
+        let ecgSession = ECGSession(
+            date: sessionStart,
             durationSeconds: elapsedSeconds,
             deviceId: deviceId,
             filterOn: true,
             status: .normal,
-            ecgSamples: ECGDataGenerator.generateStream(complexes: 3, samplesPerComplex: 50),
+            ecgSamples: Array(allSamples.prefix(120)),
             fullEcgData: recordedSegments
         )
 
-        onSessionSaved?(session)
+        onSessionSaved?(ecgSession)
+
+        // POST al backend en background — no bloquea la UI ni el guardado local
+        let payload = SensorDataPayload.from(
+            normalizedSamples: allSamples,
+            sessionStart: sessionStart
+        )
+        let userId = session.userId
+        Task {
+            do {
+                try await recordingRepository.ingestECG(userId: userId, payload: payload)
+            } catch {
+                print("[Recording] ingest error: \(error.localizedDescription)")
+            }
+        }
     }
 
     // MARK: - Formatted elapsed time

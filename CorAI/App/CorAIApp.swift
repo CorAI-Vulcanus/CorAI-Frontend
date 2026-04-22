@@ -1,18 +1,18 @@
 import SwiftUI
 
-// MARK: - App Entry Point
-
 @main
 struct CorAIApp: App {
-
-    // MARK: Dependencies
-
-    private let repository: HomeRepositoryProtocol = MockHomeRepository()
+    @State private var session = SessionManager.shared
 
     var body: some Scene {
         WindowGroup {
-            MainTabView(repository: repository)
-                .preferredColorScheme(.light)
+            if session.isLoggedIn {
+                MainTabView(repository: MockHomeRepository())
+                    .preferredColorScheme(.light)
+            } else {
+                LoginView()
+                    .preferredColorScheme(.light)
+            }
         }
     }
 }
